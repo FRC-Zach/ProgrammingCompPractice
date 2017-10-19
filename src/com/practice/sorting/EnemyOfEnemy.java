@@ -42,18 +42,6 @@ public class EnemyOfEnemy {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        scanner.next();
-        String line = scanner.nextLine();
-        while (line.startsWith("f") || line.startsWith("e")){
-            String collect = Arrays.stream(line.replaceAll(" +", " ").trim().split(" ")).skip(1).collect(Collectors.joining(" "));
-
-            line = scanner.nextLine();
-        }
-
-
-
         parse("Tom Fay", false);
         parse("Fay Mae Joe", true);
         parse("Al Mae", true);
