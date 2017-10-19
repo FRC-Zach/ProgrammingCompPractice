@@ -1,7 +1,5 @@
-package com.practice;
+package com.practice.encryption;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -10,7 +8,7 @@ import java.util.stream.IntStream;
  */
 public class Stenography {
 
-    private static final String ALPHABET =
+    private static String ALPHABET =
             " " + IntStream.rangeClosed('A', 'Z').mapToObj(value -> "" + (char) value).collect(Collectors.joining("")) + ".?\n";
 
     public static void main(String[] args) {

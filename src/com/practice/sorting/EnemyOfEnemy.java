@@ -1,4 +1,4 @@
-package com.practice;
+package com.practice.sorting;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -6,8 +6,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Zach on 10/18/2017.
  */
-public class EE {
-
+public class EnemyOfEnemy {
 
     private static Map<String, Person> persons = new HashMap<>();
 

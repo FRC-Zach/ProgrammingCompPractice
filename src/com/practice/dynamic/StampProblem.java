@@ -7,18 +7,18 @@ import java.util.Arrays;
  */
 public class StampProblem {
 
-    public static int coinChangeDynamic(int[] coins, int goal) {
+    public static int runDenominations(int[] denominations, int goal) {
         if(goal == 0) return 0;
 
         int[] memory = new int [goal + 1];
         Arrays.fill(memory, 1, goal + 1, Integer.MAX_VALUE);
 
         for(int index = 0; index <= goal; index++){
-            for(int coin : coins){
-                if (index + coin > goal) continue;
+            for(int value : denominations){
+                if (index + value > goal) continue;
 
                 if(memory[index] != Integer.MAX_VALUE){
-                    memory[index + coin] = Math.min(memory[index + coin], memory[index] + 1); //If memory[i + coin] is not already a coin (memory[i + coin]) then set it to (memory[i] + 1) aka 1 more of the current coin
+                    memory[index + value] = Math.min(memory[index + value], memory[index] + 1); //If memory[i + value] is not already a coin (memory[i + value]) then set it to (memory[i] + 1) aka 1 more of the current value
                 }
             }
         }
@@ -29,7 +29,7 @@ public class StampProblem {
     }
 
     public static void main(String[] args) {
-        System.out.println(coinChangeDynamic(new int[]{5, 7, 10}, 263));
+        System.out.println(runDenominations(new int[]{5, 7, 10}, 263));
     }
 
 }
