@@ -33,11 +33,11 @@ public class Unscramble {
 
     public static void main(String[] args) {
         try {
-            List<String> lines = Files.readAllLines(new File("C:\\Users\\S3108772\\IdeaProjects\\BotControllers\\acuity-control-client\\src\\main\\java\\com\\acuity\\control\\client\\mics\\words.txt").toPath());
+            List<String> lines = Files.readAllLines(new File("words.txt").toPath());
 
             long l = System.currentTimeMillis();
-            ConcurrentMap<String, List<String>> primeDictionaryMap = lines.stream().parallel()
-                    .collect(Collectors.groupingByConcurrent(Unscramble::countHash));
+            ConcurrentMap<BigInteger, List<String>> primeDictionaryMap = lines.stream().parallel()
+                    .collect(Collectors.groupingByConcurrent(Unscramble::primeHash));
 
             String targetWord = "cat";
             List<String> result = primeDictionaryMap.getOrDefault(primeHash(targetWord), Collections.emptyList());
