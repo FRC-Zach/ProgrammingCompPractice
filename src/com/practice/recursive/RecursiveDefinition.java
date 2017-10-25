@@ -9,7 +9,6 @@ import java.util.Map;
  */
 public class RecursiveDefinition {
 
-
     private static Map<BigInteger, BigInteger> memory = new HashMap<>();
 
     public static BigInteger recursiveMethod(BigInteger n){
@@ -33,8 +32,7 @@ public class RecursiveDefinition {
     public static void main(String[] args) {
         memory.put(BigInteger.valueOf(3), BigInteger.valueOf(10));
 
-        BigInteger bigInteger = recursiveMethod(BigInteger.valueOf(9006));
+        BigInteger bigInteger = recursiveMethod(BigInteger.valueOf(14));
         System.out.println(bigInteger);
     }
-
 }

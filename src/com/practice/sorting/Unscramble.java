@@ -36,8 +36,8 @@ public class Unscramble {
             List<String> lines = Files.readAllLines(new File("words.txt").toPath());
 
             long l = System.currentTimeMillis();
-            ConcurrentMap<BigInteger, List<String>> primeDictionaryMap = lines.stream().parallel()
-                    .collect(Collectors.groupingByConcurrent(Unscramble::primeHash));
+            ConcurrentMap<BigInteger, List<String>> primeDictionaryMap =
+                    lines.stream().parallel().collect(Collectors.groupingByConcurrent(Unscramble::primeHash));
 
             String targetWord = "cat";
             List<String> result = primeDictionaryMap.getOrDefault(primeHash(targetWord), Collections.emptyList());
