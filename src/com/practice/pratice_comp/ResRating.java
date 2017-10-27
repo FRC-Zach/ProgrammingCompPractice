@@ -12,7 +12,9 @@ public class ResRating {
         IntStream.rangeClosed(0, score).forEach(value1 -> {
             value[count - 1] = value1;
             if (count - 1 <= 0) {
-                set.add(IntStream.of(value).boxed().collect(Collectors.toList()));
+                if (IntStream.of(value).sum() <= score){
+                    set.add(IntStream.of(value).boxed().collect(Collectors.toList()));
+                }
             }
             else {
                 rec(score, count - 1, value, set);
@@ -34,14 +36,14 @@ public class ResRating {
                             return integers.get(i) < ratings[i];
                         }
                     }
-                    return sum <= score;
+                    return true;
                 })
                 .collect(Collectors.toSet());
         System.out.println(collect.size());
     }
 
     public static void main(String[] args) {
-        calc(new int[]{4, 3});
+        calc(new int[]{ 4, 3, 2, 1, 4});
     }
 
 }
