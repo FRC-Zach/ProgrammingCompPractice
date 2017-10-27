@@ -1,6 +1,5 @@
 package com.practice.pratice_comp;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,30 +20,28 @@ public class ResRating {
         });
     }
 
-    public static void calc(int criticsCount, int[] ratings){
+    public static void calc(int[] ratings){
         Set<List<Integer>> set = new HashSet<>();
 
         int score = IntStream.of(ratings).sum();
-        rec(score, criticsCount, new int[criticsCount], set);
+        rec(score, ratings.length, new int[ratings.length], set);
         Set<List<Integer>> collect = set.parallelStream()
                 .filter(integers -> {
                     int sum = integers.stream().mapToInt(Integer::intValue).sum();
                     if (sum == score){
-                        if (integers.equals(IntStream.of(ratings).boxed().collect(Collectors.toList()))){
-                            return false;
-                        }
-                        for (int i = 0; i < criticsCount; i++) {
-                            if (integers.get(i) > ratings[i]) return true;
+                        for (int i = 0; i < ratings.length; i++) {
+                            if (integers.get(i) == ratings[i]) continue;
+                            return integers.get(i) < ratings[i];
                         }
                     }
-                    return sum < score;
+                    return sum <= score;
                 })
                 .collect(Collectors.toSet());
         System.out.println(collect.size());
     }
 
     public static void main(String[] args) {
-        calc(2, new int[]{4, 3});
+        calc(new int[]{4, 3});
     }
 
 }
