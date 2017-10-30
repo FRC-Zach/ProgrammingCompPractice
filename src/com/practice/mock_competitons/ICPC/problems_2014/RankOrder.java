@@ -37,7 +37,7 @@ public class RankOrder {
                 }
             }
 
-            System.out.println("Case "+ (caseNum++) +": " + (found == -1 ? "agree" : "" + found));
+            System.out.println("Case " + (++caseNum) +": " + (found == -1 ? "agree" : found));
         }
     }
 }

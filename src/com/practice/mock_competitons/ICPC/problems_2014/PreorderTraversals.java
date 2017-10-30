@@ -12,7 +12,6 @@ public class PreorderTraversals {
 
         int caseNum = 0;
         while (sc.hasNextInt()) {
-            caseNum++;
             ArrayList<Integer> numbers = new ArrayList<>();
 
             int in;
@@ -28,7 +27,7 @@ public class PreorderTraversals {
             ArrayList<Integer> tree = new ArrayList<>();
             addTreeNumbers(tree, head);
 
-            System.out.println("Case " + caseNum + ": " + (numbers.equals(tree) ? "yes" : "no"));
+            System.out.println("Case " + ++caseNum + ": " + (numbers.equals(tree) ? "yes" : "no"));
         }
     }
 

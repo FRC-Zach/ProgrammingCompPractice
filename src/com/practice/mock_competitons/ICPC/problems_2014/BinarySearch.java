@@ -24,7 +24,7 @@ public class BinarySearch {
             for (int i = 0; i < inputs.size(); i++){
                 count += search(inputs.get(i), inputs);
             }
-            System.out.println("Case " + (caseNum++) + ": " + count);
+            System.out.println("Case " + (++caseNum) + ": " + count);
         }
     }
 

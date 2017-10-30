@@ -15,7 +15,7 @@ public class Server {
 
             String p1 = null;
             String p2 = null;
-            int caseI = 0;
+            int caseCount = 0;
             for (String string : strings) {
                 if (p1 == null){
                     p1 = string;
@@ -25,12 +25,12 @@ public class Server {
                 }
 
                if (p1 != null && p2 != null){
-                    String[] split = p1.split(" ");
+                    String[] split = p1.split(" +");
 
                     int t = Integer.parseInt(split[1]);
 
                     int total = 0;
-                    List<Integer> collect = Arrays.stream(p2.split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+                    List<Integer> collect = Arrays.stream(p2.split(" +")).map(Integer::parseInt).collect(Collectors.toList());
                     int i;
                     for (i = 0; i < collect.size(); i++) {
                         total += collect.get(i);
@@ -39,7 +39,7 @@ public class Server {
                         }
                     }
 
-                    System.out.println("Case " + ++caseI + ": " + i);
+                    System.out.println("Case " + (++caseCount) + ": " + i);
 
                     p1 = null;
                     p2 = null;
@@ -49,6 +49,5 @@ public class Server {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
