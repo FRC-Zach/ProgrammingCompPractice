@@ -9,9 +9,7 @@ import java.util.stream.Collectors;
 
 public class Server {
 
-
     public static void main(String[] args) {
-
         try {
             List<String> strings = Files.readAllLines(new File("C:\\Users\\zgh\\Dropbox\\Code\\Code Projects\\AcuityBotting\\ProgrammingCompPractice\\src\\com\\practice\\pratice_comp\\serverInput.txt").toPath());
 
@@ -22,15 +20,13 @@ public class Server {
                 if (p1 == null){
                     p1 = string;
                 }
-                else if (p2 == null){
+                else {
                     p2 = string;
                 }
-
 
                if (p1 != null && p2 != null){
                     String[] split = p1.split(" ");
 
-                    int n = Integer.parseInt(split[0]);
                     int t = Integer.parseInt(split[1]);
 
                     int total = 0;
@@ -55,5 +51,4 @@ public class Server {
         }
 
     }
-
 }

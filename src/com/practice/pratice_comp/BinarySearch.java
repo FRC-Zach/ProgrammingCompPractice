@@ -1,9 +1,8 @@
-package com.practice.pratice_comp.asd;
+package com.practice.pratice_comp;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class BinarySearch {

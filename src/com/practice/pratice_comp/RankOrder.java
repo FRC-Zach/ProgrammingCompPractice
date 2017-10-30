@@ -13,16 +13,16 @@ public class RankOrder {
         while (sc.hasNextInt()){
             caseNum++;
             int ratingCount = sc.nextInt();
-            ArrayList<Integer> inputOne = new ArrayList<Integer>();
-            ArrayList<Integer> inputTwo = new ArrayList<Integer>();
+            ArrayList<Integer> inputOne = new ArrayList<>();
+            ArrayList<Integer> inputTwo = new ArrayList<>();
             for (int i = 0; i < ratingCount; i++){
                 inputOne.add(sc.nextInt());
             }
             for (int i = 0; i < ratingCount; i++){
                 inputTwo.add(sc.nextInt());
             }
-            ArrayList<Integer> sortedOne = new ArrayList<Integer>();
-            ArrayList<Integer> sortedTwo = new ArrayList<Integer>();
+            ArrayList<Integer> sortedOne = new ArrayList<>();
+            ArrayList<Integer> sortedTwo = new ArrayList<>();
             sortedOne.addAll(inputOne);
             sortedTwo.addAll(inputTwo);
 

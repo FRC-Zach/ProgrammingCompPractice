@@ -20,7 +20,6 @@ public class AnagramPyramids {
         return hash;
     }
 
-
     public static void main(String[] args) {
         int cc = 0;
         try {
