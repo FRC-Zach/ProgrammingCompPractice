@@ -11,19 +11,19 @@ public class RecursiveDefinition {
 
     private static Map<BigInteger, BigInteger> memory = new HashMap<>();
 
-    public static BigInteger recursiveMethod(BigInteger n){
-        BigInteger bigInteger = memory.get(n);
-        if (bigInteger != null) return bigInteger;
+    public static BigInteger recursiveDefinition(BigInteger n){
+        BigInteger memorizedInt = memory.get(n);
+        if (memorizedInt != null) return memorizedInt;
 
         if (BigInteger.valueOf(3).compareTo(n) > 0){
             memory.put(n, n);
             return n;
         }
 
-        BigInteger result = recursiveMethod(n.subtract(BigInteger.valueOf(2)))
-                .subtract(recursiveMethod(n.subtract(BigInteger.valueOf(4))))
-                .add(recursiveMethod(n.subtract(BigInteger.valueOf(5))))
-                .subtract(recursiveMethod(n.subtract(BigInteger.valueOf(8))));
+        BigInteger result = recursiveDefinition(n.subtract(BigInteger.valueOf(2)))
+                .subtract(recursiveDefinition(n.subtract(BigInteger.valueOf(4))))
+                .add(recursiveDefinition(n.subtract(BigInteger.valueOf(5))))
+                .subtract(recursiveDefinition(n.subtract(BigInteger.valueOf(8))));
 
         memory.put(n, result);
         return result;
@@ -32,7 +32,7 @@ public class RecursiveDefinition {
     public static void main(String[] args) {
         memory.put(BigInteger.valueOf(3), BigInteger.valueOf(10));
 
-        BigInteger bigInteger = recursiveMethod(BigInteger.valueOf(14));
+        BigInteger bigInteger = recursiveDefinition(BigInteger.valueOf(14));
         System.out.println(bigInteger);
     }
 }

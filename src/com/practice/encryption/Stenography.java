@@ -13,12 +13,6 @@ public class Stenography {
     public static void main(String[] args) {
         int[] inputs = new int[]{31, 0, 33, 61, 62, 117, 30, 93, 121, 14, 29, 39, 50, 30, 2, 65, 88, 59};
 
-        String test = "asdasdasdasdasdasd";
-
-
-        StringBuilder sb = new StringBuilder(test);
-
-
         for (int input : inputs) {
             System.out.print(ALPHABET.charAt(input % 30));
         }

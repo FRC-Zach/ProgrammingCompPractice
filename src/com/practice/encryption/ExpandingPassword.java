@@ -9,13 +9,14 @@ public class ExpandingPassword {
         String password = "9P8L7U6M@52";
         int targetLength = 16;
 
+
         char[] chars = password.toCharArray();
 
         StringBuilder result = null;
-        for (int base = 0; base < 8; base++) {
+        for (int baseOffset = 0; baseOffset <= 7; baseOffset++) {
             result = new StringBuilder();
             for (char aChar : chars) {
-                result.append(Character.isDigit(aChar) ? Integer.toString(Integer.valueOf(aChar + ""), 9 - base) : aChar);
+                result.append(Character.isDigit(aChar) ? Integer.toString(Integer.valueOf(String.valueOf(aChar)), 9 - baseOffset) : aChar);
             }
             if (result.length() >= targetLength) break;
         }
