@@ -1,4 +1,4 @@
-package com.practice.pratice_comp;
+package com.practice.mock_competitons.ICPC.problems_2014;
 
 import java.util.Arrays;
 import java.util.HashSet;

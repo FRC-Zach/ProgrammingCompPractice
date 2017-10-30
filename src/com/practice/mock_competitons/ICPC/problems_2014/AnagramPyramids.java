@@ -1,4 +1,4 @@
-package com.practice.pratice_comp;
+package com.practice.mock_competitons.ICPC.problems_2014;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,36 +15,34 @@ public class AnagramPyramids {
     public static BigInteger primeHash(String word){
         BigInteger hash = BigInteger.valueOf(1);
         for (char c : word.toCharArray()) {
-            hash = hash.multiply(BigInteger.valueOf(PRIMES[Character.toLowerCase(c) - 'a']));
+            hash = hash.multiply(primeValue(c));
         }
         return hash;
     }
 
+    public static BigInteger primeValue(Character character){
+        return BigInteger.valueOf(PRIMES[Character.toLowerCase(character) - 'a']);
+    }
+
     public static void main(String[] args) {
-        int cc = 0;
+        int caseCount = 0;
         try {
-            List<String> strings = Files.readAllLines(new File("C:\\Users\\zgh\\Dropbox\\Code\\Code Projects\\AcuityBotting\\ProgrammingCompPractice\\src\\com\\practice\\pratice_comp\\anagramInput.txt").toPath());
-            Iterator<String> iterator = strings.iterator();
+            List<String> strings = Files.readAllLines(new File("input/anagramInput.txt").toPath());
 
             ArrayList<String> dict = new ArrayList<>();
-            int c = Integer.parseInt(iterator.next());
-            iterator.remove();
-            for (int i = 0; i < c; i++) {
-                String next = iterator.next();
+            int dictLength = Integer.parseInt(strings.remove(0));
+            for (int i = 0; i < dictLength; i++) {
+                String next = strings.remove(0);
                 dict.add(next);
-                iterator.remove();
             }
 
-            System.out.println("Case " + ++cc + ":");
+            System.out.println("Case " + (++caseCount) + ":");
 
             ConcurrentMap<BigInteger, List<String>> collect = dict.stream().parallel().collect(Collectors.groupingByConcurrent(AnagramPyramids::primeHash));
 
-            int c1 = Integer.parseInt(iterator.next());
-            iterator.remove();
-
-            for (int i = 0; i < c1; i++) {
-                String[] split = iterator.next().split(" ");
-                iterator.remove();
+            int caseLength = Integer.parseInt(strings.remove(0));
+            for (int i = 0; i < caseLength; i++) {
+                String[] split = strings.remove(0).split(" ");
 
                 String start = split[1];
                 String end = split[0];
@@ -72,9 +70,9 @@ public class AnagramPyramids {
         for (char removed : in.toCharArray()) {
             BigInteger hash = BigInteger.ONE;
             for (char c : in.toCharArray()) {
-                hash = hash.multiply(BigInteger.valueOf(PRIMES[Character.toLowerCase(c) - 'a']));
+                hash = hash.multiply(primeValue(c));
             }
-            hash = hash.divide(BigInteger.valueOf(PRIMES[Character.toLowerCase(removed) - 'a']));
+            hash = hash.divide(primeValue(removed));
             results.addAll(collect.getOrDefault(hash, Collections.emptyList()));
         }
         return results;

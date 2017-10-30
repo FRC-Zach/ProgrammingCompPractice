@@ -1,4 +1,4 @@
-package com.practice.pratice_comp;
+package com.practice.mock_competitons.ICPC.problems_2014;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class PreorderTraversals {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("preorderTraversals.txt"));
+        Scanner sc = new Scanner(new File("input/preorderTraversals.txt"));
 
         int caseNum = 0;
         while (sc.hasNextInt()) {

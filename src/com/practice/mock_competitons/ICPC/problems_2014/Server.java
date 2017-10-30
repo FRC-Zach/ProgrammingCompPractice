@@ -1,4 +1,4 @@
-package com.practice.pratice_comp;
+package com.practice.mock_competitons.ICPC.problems_2014;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ public class Server {
 
     public static void main(String[] args) {
         try {
-            List<String> strings = Files.readAllLines(new File("C:\\Users\\zgh\\Dropbox\\Code\\Code Projects\\AcuityBotting\\ProgrammingCompPractice\\src\\com\\practice\\pratice_comp\\serverInput.txt").toPath());
+            List<String> strings = Files.readAllLines(new File("input/serverInput.txt").toPath());
 
             String p1 = null;
             String p2 = null;
