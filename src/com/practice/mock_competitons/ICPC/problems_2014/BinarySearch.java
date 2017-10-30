@@ -6,40 +6,43 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BinarySearch {
+
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(new File("input/BinarySearchInput.txt"));
+
         int caseNum = 0;
         while (sc.hasNextInt()) {
-            caseNum++;
-            int amount = sc.nextInt();
-            ArrayList<Integer> inputs = new ArrayList<Integer>();
-            for (int i = 0; i < amount; i++) {
+
+            ArrayList<Integer> inputs = new ArrayList<>();
+
+            int in = sc.nextInt();
+            for (int i = 0; i < in; i++) {
                 inputs.add(i * 5);
             }
 
             int count = 0;
             for (int i = 0; i < inputs.size(); i++){
-                count += Search(inputs.get(i), inputs);
+                count += search(inputs.get(i), inputs);
             }
-            System.out.println("Case "+caseNum+": "+count);
+            System.out.println("Case " + (caseNum++) + ": " + count);
         }
     }
 
-    static int Search(int num, ArrayList<Integer> inputs){
+    public static int search(int num, ArrayList<Integer> inputs){
         int count  = 0;
-        int Low = 0;
-        int High = inputs.size() - 1;
-        while (Low <= High){
+        int low = 0;
+        int high = inputs.size() - 1;
+        while (low <= high){
             count++;
-            int Mid = (Low + High) / 2;
-            if (inputs.get(Mid) == num){
+            int mid = (low + high) / 2;
+            if (inputs.get(mid) == num){
                 break;
             }
-            if (inputs.get(Mid) < num){
-                Low = Mid + 1;
+            else if (inputs.get(mid) < num){
+                low = mid + 1;
             }
-            if (inputs.get(Mid) > num){
-                High = Mid - 1;
+            else if (inputs.get(mid) > num){
+                high = mid - 1;
             }
         }
         return count;
