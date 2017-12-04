@@ -34,12 +34,13 @@ public class HardestHangman {
             });
 
             Map<Integer, List<String>> collect = lines.stream().collect(Collectors.groupingBy(String::length));
-            collect.forEach((key, value) -> value.sort((o1, o2) -> {
-                int s1 = score(o1);
-                int s2 = score(o1);
+
+            collect.forEach((key, value) -> value.sort((string1, string2) -> {
+                int s1 = score(string1);
+                int s2 = score(string1);
 
                 if (s1 == s2) {
-                    return o2.compareTo(o1);
+                    return string2.compareTo(string1);
                 }
 
                 return Integer.compare(s1, s2);

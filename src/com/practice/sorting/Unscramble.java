@@ -33,18 +33,16 @@ public class Unscramble {
 
     public static void main(String[] args) {
         try {
-            List<String> lines = Files.readAllLines(new File("words.txt").toPath());
-
-            long l = System.currentTimeMillis();
+            List<String> lines = Files.readAllLines(new File("input/words.txt").toPath());
             ConcurrentMap<BigInteger, List<String>> primeDictionaryMap =
-                    lines.stream().parallel().collect(Collectors.groupingByConcurrent(Unscramble::primeHash));
+                    lines.stream()
+                            .parallel()
+                            .collect(Collectors.groupingByConcurrent(Unscramble::primeHash));
 
             String targetWord = "cat";
-            List<String> result = primeDictionaryMap.getOrDefault(primeHash(targetWord), Collections.emptyList());
-            long s = System.currentTimeMillis();
-            System.out.println(result);
 
-            System.out.println(s - l);
+            List<String> result = primeDictionaryMap.getOrDefault(primeHash(targetWord), Collections.emptyList());
+            System.out.println(result);
         } catch (IOException e) {
             e.printStackTrace();
         }

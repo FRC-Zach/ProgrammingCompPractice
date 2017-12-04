@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
  */
 public class Stenography {
 
-    private static String ALPHABET = " " + IntStream.rangeClosed('A', 'Z').mapToObj(value -> "" + (char) value).collect(Collectors.joining("")) + ".?\n";
+    private static String ALPHABET = " " + IntStream.rangeClosed('A', 'Z').mapToObj(value -> "" + (char) value).collect(Collectors.joining(""));
 
     public static void main(String[] args) {
         int[] inputs = new int[]{31, 0, 33, 61, 62, 117, 30, 93, 121, 14, 29, 39, 50, 30, 2, 65, 88, 59};
