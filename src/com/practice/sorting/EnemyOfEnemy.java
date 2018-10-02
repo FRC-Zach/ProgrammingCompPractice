@@ -15,6 +15,8 @@ public class EnemyOfEnemy {
     }
 
     public static boolean check(List<Person> persons){
+
+
         for (Person base : persons) {
             for (Person other : persons) {
                 if (base.equals(other)) continue;

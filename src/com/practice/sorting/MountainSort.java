@@ -20,6 +20,9 @@ public class MountainSort {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+
+
+
         int lines = scanner.nextInt();
 
         List<Integer> inputs = new ArrayList<>();
