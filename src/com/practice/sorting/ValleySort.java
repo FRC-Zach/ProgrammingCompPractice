@@ -6,26 +6,28 @@ import java.util.stream.Collectors;
 public class ValleySort {
 
     public static void main(String[] args) {
-        int[] input = new int[]{20, 45, 30, 5, 15, 50, 10, 35};
+        //20, 45, 30, 5, 15, 50, 10, 35
+        Scanner scanner = new Scanner(System.in);
 
-        List<Integer> collect = Arrays.stream(input).sorted().boxed().collect(Collectors.toList());
+        String line = scanner.nextLine();
+
+
+        String[] input = line.split(", ");
 
         List<String> down = new ArrayList<>();
         List<String> up = new ArrayList<>();
 
         boolean flip = false;
-        while (collect.size() > 0){
-            ((flip = !flip) ? down : up).add("" + collect.remove(collect.size() - 1));
+        for (String num : input) {
+            if (flip) up.add(num);
+            else down.add(num);
+            flip = !flip;
         }
 
-        Collections.reverse(up);
-        down.addAll(up);
-
         StringJoiner output = new StringJoiner("\n");
-        output.add("" + down.size());
+        up.forEach(output::add);
         down.forEach(output::add);
 
         System.out.print(output.toString());
     }
-
 }

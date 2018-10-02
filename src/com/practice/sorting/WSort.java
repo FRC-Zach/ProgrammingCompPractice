@@ -14,7 +14,7 @@ public class WSort {
 
         List<ArrayList<Integer>> legs = Arrays.asList(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
 
-        out:for (;;){
+        out:while (true){
             for (ArrayList<Integer> leg : legs) {
                 leg.add(luckyValues.remove(0));
                 if (luckyValues.isEmpty()) break out;
@@ -23,9 +23,9 @@ public class WSort {
 
         List<Integer> completeSort = new ArrayList<>();
         completeSort.addAll(legs.get(0));
-        completeSort.addAll(legs.get(2));
         completeSort.addAll(legs.get(3));
         completeSort.addAll(legs.get(1));
+        completeSort.addAll(legs.get(2));
 
         StringJoiner stringJoiner = new StringJoiner("\n");
         for (int i = 1; i <= 31; i++) {
