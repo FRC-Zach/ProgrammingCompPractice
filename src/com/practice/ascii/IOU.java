@@ -1,5 +1,10 @@
 package com.practice.ascii;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
 public class IOU {
 
     private static char[][] def = new char[][]{
@@ -18,7 +23,14 @@ public class IOU {
 
 
     public static void main(String[] args) {
-        int scale = 2;
+
+
+
+
+
+
+
+        /*int scale = 7;
 
         for (char[] line : def) {
             for (int i = 0; i < scale; i++) {
@@ -29,6 +41,6 @@ public class IOU {
                 }
                 System.out.println();
             }
-        }
+        }*/
     }
 }

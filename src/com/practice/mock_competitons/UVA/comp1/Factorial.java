@@ -20,7 +20,7 @@ public class Factorial {
 
     public static void main(String[] args) {
 
-        args = new String[]{"3"};
+        args = new String[]{"4444", "666666"};
 
         for (String in : args) {
             Map<Integer, Long> freg = freg(Integer.parseInt(in));
